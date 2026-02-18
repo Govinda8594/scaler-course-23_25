@@ -1,0 +1,39 @@
+SOLID Principles
+S - Single Responsibility Principle
+=> Every code unit should have only one responsibility
+=> There should be only one reason to change the code
+Identify => Monster method -> a method does more than what its name suggests.
+    A method with mutiple if-else is likely to violate the SRP
+
+O - Open-close Principle
+=> Codebase should be open for extension and close for modification
+
+L - LisKov's Substitution Principle
+=> An Object Child classes should be substituable  as it is in the parent class data type,without any change
+=> child class should not change the meaning of a method which it is overriding.
+=> child class should behave as the parent class wants them to writing code to the parent class
+
+I - Interface-Segregation Principle
+=>Interface should be light as possible, has less method.
+=> ideal number of methods for the interface should be one like functional interface
+
+D - Dependency inversion Principle
+=>
+
+
+Creational Design Pattern
+1. Singleton DP
+2. Builder DP => if class has too many attributes, then it should create object with different attributes by using builder inner class to build object
+3. Prototype & Registery DP => to make clone and register different type of objects
+4. Factory DP => create object while using abstract factory to avoid dependency of one class in other class
+
+Structural Design Pattern
+1. Adapter DP => acts as adapter between two components
+2. Facade DP => divide the responsibility of class,if that class hold too much responsibility
+3. Decorator DP => Decorator design pattern allows us to dynamically add functionality and behavior to an object without affecting the behavior of other existing objects within the same class.
+4. FlyWeight DP => If object is taking more memory than u can store intrinsic(value is same everytime) and extrinsic(value changes everytime) properties
+    separately.
+
+Behaviourly Design Pattern
+1. Strategy DP => whenever we have mutiple ways to do something use strategy DP example : GOogle find path
+2. Observer DP => Whenever there is to notify other component use Observer DP example: Notification,Subscribtion
