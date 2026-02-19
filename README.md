@@ -22,6 +22,3 @@ This repository is a structured learning hub for mastering Data Structures & Alg
 - Practical LLD implementations showcasing design patterns.
 - Real-world HLD case studies (e.g., designing scalable chat apps, e-commerce platforms, payment systems).
 - Well-documented notes and references for quick revision.
-
-
-Would you like me to also create a shorter, recruiter-friendly project description (2–3 lines) that you can paste into your GitHub profile or resume, so it looks crisp and impactful?
