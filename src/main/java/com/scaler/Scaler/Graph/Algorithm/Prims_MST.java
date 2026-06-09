@@ -38,7 +38,11 @@ public class Prims_MST {
     public int primMST(int V, List<List<Edge>> graph) {
         boolean[] visited = new boolean[V];
         PriorityQueue<Edge> pq = new PriorityQueue<>(Comparator.comparingInt(e -> e.weight));
-        pq.add(new Edge(0, 0)); // Start from node 0
+
+        visited[0] = true; // marked any node as visited/start with any node
+        for(Edge edge : graph.get(0)){
+            pq.add(new Edge(edge.to, edge.weight)); // put all edges to minHeap
+        }
         int totalCost = 0;
 
         while (!pq.isEmpty()) {

@@ -1,7 +1,8 @@
 package com.scaler.Scaler.Sorting;
-//Given an array of integers A. If i < j and A[i] > A[j], then the pair (i, j) is called an inversion of A. Find the total number of inversions of A modulo (109 + 7).
+//Given an array of integers A. If i < j and A[i] > A[j],
+// then the pair (i, j) is called an inversion of A.
+// Find the total number of inversions of A modulo (109 + 7).
 public class InversionCount {
-//    Given an array of integers A. If i < j and A[i] > A[j], then the pair (i, j) is called an inversion of A. Find the total number of inversions of A modulo (109 + 7).
         public int inversionCount(int[] A) {
             int end = A.length-1,start = 0;
             return inversion(A,start,end);

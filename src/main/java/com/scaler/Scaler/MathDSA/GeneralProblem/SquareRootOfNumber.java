@@ -24,4 +24,22 @@ public class SquareRootOfNumber {
             return -1;
 
     }
+
+    int solve4(int A){
+        for(int i = 1;i <= A;i++){
+            int quotient = A/i;
+            if(quotient * quotient == A)
+                return quotient;
+        }
+        return -1;
+    }
+
+     int solve3(int A){
+        for(int i = 1;i*i <= A;i++){
+            int quotient = A/i;
+            if(quotient * quotient == A)
+                    return quotient;
+        }
+        return -1;
+     }
 }

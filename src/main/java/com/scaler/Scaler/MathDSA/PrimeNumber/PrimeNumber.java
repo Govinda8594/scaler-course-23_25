@@ -25,17 +25,20 @@ public class PrimeNumber {
     }
 
 
-    public int solve(Long A) {
-        if (A == 1 || A == 0) {
-            return 0;
-        } else {
-            int sqrt = (int) Math.sqrt(A);
-            for (int i = 2; i <= sqrt; ++i) {
-                if (A % i == 0) {
-                    return 0;
-                }
-            }
-            return 1;
+    public int solve(long A) {
+        return isPrime(A) ? 1 : 0;
+    }
+
+    boolean isPrime(long N) {
+        if(N <= 1)
+            return false;
+        int sqrt = (int) Math.sqrt(N);
+
+        for (int i = 2; (long) i <= sqrt; i++) {
+            if(N % i == 0)
+                return false;
         }
+
+        return true;
     }
 }

@@ -15,6 +15,11 @@ public class PermissionsDecorator {
     }
 
 
+    // This is what was missing
+    public Permission getPermission(User user) {
+        return userPermissions.getOrDefault(user, Permission.NONE);
+    }
+
 
     public enum Permission {
         READ, WRITE, NONE;

@@ -36,19 +36,17 @@ public class CycleIn_DirectedGraph {
     }
 
     public static boolean isCyclicUtil(int v) {
-        if (visited[v] == 0) {
             // Mark the current node as visited and part of recursion stack
             visited[v] = 1;
             paths[v] = 1;
             // Recur for all the vertices adjacent to this vertex
             for (int u : adj.get(v)) {
-                if (visited[u] == 0 && isCyclicUtil(u)) {
+                if (paths[u] == 1) {
                     return true;
-                } else if (paths[u] == 1) {
+                } else if (visited[u] == 0 && isCyclicUtil(u)) {
                     return true;
                 }
             }
-        }
         paths[v] = 0; // remove the vertex from recursion stack
         return false;
     }
@@ -137,4 +135,6 @@ public class CycleIn_DirectedGraph {
         }
         return 0;
     }
+
+
 }

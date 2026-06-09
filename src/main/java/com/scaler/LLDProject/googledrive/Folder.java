@@ -27,17 +27,27 @@ public class Folder implements FileSystemComponent {
 
     @Override
     public void add(FileSystemComponent component) {
+        if (component == null || component.getName() == null) {
+            throw new IllegalArgumentException("Component or component name cannot be null");
+        }
+
         children.put(component.getName(), component);
     }
 
     @Override
     public void remove(FileSystemComponent component) {
+        if (component == null) return;
         children.remove(component.getName());
     }
 
     @Override
     public FileSystemComponent getChild(String name) {
-        return children.get(name);
+        FileSystemComponent child = children.get(name);
+        if (child == null) {
+            throw new UnsupportedOperationException("Child not found: " + name);
+        }
+        return child;
+
     }
 
     @Override

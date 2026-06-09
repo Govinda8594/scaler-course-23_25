@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-//Given a 2-D board A of size N x M containing 'X' and 'O', capture all regions surrounded by 'X'.
-//        A region is captured by flipping all 'O's into 'X's in that surrounded region.
+//Given a 2-D board A of size N x M containing 'X' and 'O',
+// capture all regions surrounded by 'X'.
+//        A region is captured by flipping all 'O's into 'X's in that
+//        surrounded region.
 //
 //        Problem Constraints
 //        1 <= N, M <= 1000

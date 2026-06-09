@@ -60,16 +60,26 @@ public class FileSystemProxy implements FileSystemComponent {
         }
     }
 
+    @Override
+    public PermissionsDecorator getPermissions() {
+        // Option 1: Expose real permissions (read-only assumption)
+        return realComponent.getPermissions();
+
+        // Option 2: Wrap to prevent external mutation if needed
+        // return new ReadOnlyPermissionsView(realComponent.getPermissions());
+    }
 
     private boolean hasReadPermission() {
-        PermissionsDecorator.Permission permission = realComponent.getPermissions().getPermission(currentUser);
-        return permission == PermissionsDecorator.Permission.READ || permission == PermissionsDecorator.Permission.WRITE;
+        PermissionsDecorator.Permission permission =
+                realComponent.getPermissions().getPermission(currentUser);
+        return permission == PermissionsDecorator.Permission.READ
+                || permission == PermissionsDecorator.Permission.WRITE;
     }
 
     private boolean hasWritePermission() {
-        PermissionsDecorator.Permission permission = realComponent.getPermissions().getPermission(currentUser);
+        PermissionsDecorator.Permission permission =
+                realComponent.getPermissions().getPermission(currentUser);
         return permission == PermissionsDecorator.Permission.WRITE;
     }
 
-    
 }

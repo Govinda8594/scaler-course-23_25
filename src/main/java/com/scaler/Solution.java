@@ -290,7 +290,7 @@ class Solution3 {
         for (int i = M - 1; i >= 0; i--) {
             sum = carry;
             for (int j = 0; j < A; j++) {
-                sum += (int) (C[j].charAt(i) - '0');
+                sum += (C[j].charAt(i) - '0');
             }
 
             ans.append((char) ((char) (sum % 2) + '0'));

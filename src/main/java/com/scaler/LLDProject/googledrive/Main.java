@@ -41,7 +41,6 @@ public class Main {
         // Observer Pattern for Notifications
         Subject subject = new Subject();
         Observer user2Observer = new Observer() {
-            @Override
             public void update(String message) {
                 System.out.println("User2 received notification: " + message);
             }

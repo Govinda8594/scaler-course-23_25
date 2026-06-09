@@ -715,7 +715,7 @@ class MainTest {
                 return 0;
             }
         });
-        // Your code goes here
+            // Your code goes here
         Arrays.sort(arr, (i1, i2) -> {
             return Integer.bitCount(i2) - Integer.bitCount(i1);
         });
@@ -753,7 +753,7 @@ class MainTest {
         // code here
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < k; i++) {
-            map.put(arr[i], map.getOrDefault(arr, 0) + 1);
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
         }
 
         Iterator itr = map.values().iterator();
@@ -821,7 +821,7 @@ class MainTest {
             }
             if (count > max) {
                 max = count;
-                ans = String.valueOf(Math.max(Integer.valueOf(ans), Integer.valueOf(arr[i])));
+                ans = String.valueOf(Math.max(Integer.parseInt(ans), Integer.parseInt(arr[i])));
             }
         }
         return max == 0 ? "-1" : ans;
@@ -1080,8 +1080,8 @@ class MainTest {
         }
         int elems = 0;
         // Iterate through the count array and count elements that appear more than n/k times
-        for (int i = 0; i < count.length; i++) {
-            if (count[i] > times) {
+        for (int j : count) {
+            if (j > times) {
                 elems++;
             }
         }

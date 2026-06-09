@@ -31,29 +31,45 @@ public class CheckCycle_UnDirected_Graph_Using_DSU {
             }
         }
 
+        // 1. Optimized Find (with Path Compression)
         int find(int[] parent, int i) {
-            if (parent[i] == -1) {
+            if (parent[i] == i)
                 return i;
+            return parent[i] = find(parent, parent[i]); // Path compression happens here
+        }
+
+        // 2. Optimized Union (with Union by Rank)
+        void union(int[] parent, int[] rank, int xroot, int yroot) {
+            if (rank[xroot] < rank[yroot]) {
+                parent[xroot] = yroot;
+            } else if (rank[xroot] > rank[yroot]) {
+                parent[yroot] = xroot;
+            } else {
+                parent[yroot] = xroot;
+                rank[xroot]++;
             }
-            return find(parent, parent[i]);
         }
 
-        void Union(int[] parent, int x, int y) {
-            int xset = find(parent, x);
-            int yset = find(parent, y);
-            parent[xset] = yset;
-        }
+        // 3. Cycle Detection Logic
+        boolean isCycle() {
+            int[] parent = new int[V];
+            int[] rank = new int[V];
 
-        boolean isCycle(GraphDSU GraphDSU) {
-            int[] parent = new int[GraphDSU.V];
-            Arrays.fill(parent, -1);
-            for (int i = 0; i < GraphDSU.E; ++i) {
-                int x = GraphDSU.find(parent, GraphDSU.edge[i].src);
-                int y = GraphDSU.find(parent, GraphDSU.edge[i].dest);
-                if (x == y) {
-                    return true;
-                }
-                GraphDSU.Union(parent, x, y);
+            // Initialize: every node is its own parent (rank 0)
+            for (int i = 0; i < V; i++) {
+                parent[i] = i;
+                rank[i] = 0;
+            }
+
+            for (int i = 0; i < E; i++) {
+                int x = find(parent, edge[i].src);
+                int y = find(parent, edge[i].dest);
+
+                // If roots are the same, we found a cycle!
+                if (x == y) return true;
+
+                // Otherwise, combine the two sets
+                union(parent, rank, x, y);
             }
             return false;
         }
