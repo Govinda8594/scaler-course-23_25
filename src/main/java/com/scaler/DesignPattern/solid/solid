@@ -1,0 +1,22 @@
+SOLID Principles
+S - Single Responsibility Principle
+=> Every code unit should have only one responsibility
+=> There should be only one reason to change the code
+Identify => Monster method -> a method does more than what its name suggests.
+    A method with mutiple if-else is likely to violate the SRP
+
+O - Open-close Principle
+=> Codebase should be open for extension and close for modification
+
+L - LisKov's Substitution Principle
+=> An Object Child classes should be substituable  as it is in the parent class data type,without any change
+=> child class should not change the meaning of a method which it is overriding.
+=> child class should behave as the parent class wants them to writing code to the parent class
+
+I - Interface-Segregation Principle
+=>Interface should be light as possible, has less method.
+=> ideal number of methods for the interface should be one like functional interface
+
+D - Dependency inversion Principle
+=> High-level module should not depend on low-level module.They should interact through Abstraction
+e.g NotificationService should directly communcaite with EmailService, Instead MessageSender as interact can help in Abstraction
