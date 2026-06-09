@@ -27,3 +27,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+echo ".idea/" >> .gitignore
+git add .gitignore
+git commit -m "Ignore IntelliJ IDEA files"
