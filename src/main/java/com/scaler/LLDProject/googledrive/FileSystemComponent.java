@@ -14,5 +14,5 @@ public interface FileSystemComponent {
 
     void display(String indent);
 
-    PermissionsDecorator getPermissions();
+    PermissionsDecorator.Permission getPermissions();
 }

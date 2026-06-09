@@ -11,7 +11,7 @@ public class CheckCycle_UnDirected_Graph_Using_DSU {
         GraphDSU.edge[1].dest = 2;
         GraphDSU.edge[2].src = 0;
         GraphDSU.edge[2].dest = 2;
-        if (GraphDSU.isCycle()) {
+        if (GraphDSU.isCycle(GraphDSU)) {
             System.out.println("Graph contains cycle");
         } else {
             System.out.println("Graph doesn't contain cycle");
