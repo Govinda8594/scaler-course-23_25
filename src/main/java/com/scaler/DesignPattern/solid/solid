@@ -9,12 +9,14 @@ O - Open-close Principle
 => Codebase should be open for extension and close for modification
 
 L - LisKov's Substitution Principle
-=> An Object Child classes should be substituable  as it is in the parent class data type,without any change
+=> Objects of a superclass should be replaceable with objects of a subclass without breaking the application.
+=>A child class should behave in such a way that it can replace the parent class without changing the correctness of the program.
 => child class should not change the meaning of a method which it is overriding.
-=> child class should behave as the parent class wants them to writing code to the parent class
+=>Code written for a parent class should continue to work correctly when a child class object is passed instead.
 
 I - Interface-Segregation Principle
 =>Interface should be light as possible, has less method.
+=>A class should not be forced to implement methods that it does not need.
 => ideal number of methods for the interface should be one like functional interface
 
 D - Dependency inversion Principle

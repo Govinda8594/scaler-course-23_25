@@ -11,54 +11,6 @@ public class Student {
     private int gradYear;
     private String phoneNumber;
 
-    /*
-     1. So many constructors
-     2. At some point constructor overloading is not even possible.
-     */
-
-//    public Student(String name, int age) {
-//        this.name = name;
-//        this.age = age;
-//    }
-//
-//    public Student(int age, double psp) {
-//        this.age = age;
-//        this.psp = psp;
-//    }
-
-//    public Student(String batch, Long id) {
-//        this.batch = batch;
-//        this.id = id;
-//    }
-//
-//    public Student(String phoneNumber, Long id) {
-//        this.phoneNumber = phoneNumber;
-//        this.id = id;
-//    }
-
-//    public Student(String name, int age, double psp, String universityName, String batch, Long id, int gradYear, String phoneNumber) {
-//        this.name = name;
-//        this.age = age;
-//        this.psp = psp;
-//        this.universityName = universityName;
-//        this.batch = batch;
-//        this.id = id;
-//        this.gradYear = gradYear;
-//        this.phoneNumber = phoneNumber;
-//    }
-//
-//    public Student(Map<String, Object> map){
-//        /*
-//         1. we're only setting 2-3 properties
-//         */
-//        if(map.containsKey("name")){
-//            this.name = (String)map.get("name");
-//        }
-//        if(map.containsKey("age")){
-//            this.age = (int)map.get("age");
-//        }
-//    }
-
     private Student(Builder builder) {
 
         // add any validations that you want.

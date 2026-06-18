@@ -6,3 +6,13 @@ public interface GUIFactory {
     Button createButton();
     Menu createMenu();
 }
+
+//UIFactory
+//createButton() createCheckbox()
+//        /              \
+//        /                \
+//WindowsFactory          MacFactory
+//       |                       |
+//               |                       |
+//WindowsButton             MacButton
+//WindowsCheckbox           MacCheckbox

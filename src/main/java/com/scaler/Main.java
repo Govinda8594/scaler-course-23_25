@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -26,6 +28,15 @@ public class Main {
         for (Map.Entry<Integer, Integer> ele : map.entrySet()) {
         }
         String s = "sfsdf";
+
+        Map<Character, Integer> freq = new HashMap<>();
+
+        long canformPalindrome = s.chars().mapToObj(String::valueOf)
+                .collect(Collectors.groupingBy(Function.identity(),
+                        Collectors.counting())).entrySet().stream()
+                        .filter(e -> e.getValue() % 2 != 0).count();
+        System.out.println(canformPalindrome <= 1);
+
         Integer f = 5;
         int[] A = {6, 43, 5, 232, 8, 64, 8, 3, 5, 3};
         Arrays.sort(A);
@@ -55,6 +66,8 @@ public class Main {
         }
 //        return 0;
     }
+
+}
 
     public static void main2(String[] args) {
 //        reduced_String(3,"geegsforgeeeks");
