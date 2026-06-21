@@ -1,5 +1,8 @@
 package com.scaler.Scaler.Arrays;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 //Given an array of non-negative integers A where each element represents your maximum jump length at that position.
 //        The initial position is the first index of the array, and the goal is to reach the last index of the array with the minimum number of jumps.
 //        Note: If it is not possible to reach the last index, return -1 instead.
