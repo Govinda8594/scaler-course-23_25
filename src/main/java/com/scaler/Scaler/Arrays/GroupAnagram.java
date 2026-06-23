@@ -3,7 +3,7 @@ package com.scaler.Scaler.Arrays;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class GroupAnagram {
+public class    GroupAnagram {
 
 
     public static void main(String[] args) {
@@ -28,6 +28,24 @@ public class GroupAnagram {
 //            map.computeIfAbsent(sorted, k -> new ArrayList<>()).add(word);
         }
 
+
+
         System.out.println(new ArrayList<>(map.values()));
+    }
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+        List<List<String>> arr = new ArrayList<>();
+        Map<String,List<String>> map = new HashMap<>();
+        int n = strs.length;
+        for (String s : strs) {
+            char[] ar = s.toCharArray();
+            Arrays.sort(ar);
+            String a = Arrays.toString(ar);
+            map.computeIfAbsent(a, k -> new ArrayList<>()).add(s);
+        }
+        map.entrySet().stream().forEach(e -> {
+            arr.add(e.getValue());
+        });
+        return arr;
     }
 }

@@ -1,6 +1,8 @@
 package com.scaler.Scaler.Arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MergeOverlappingIntervls {
     public ArrayList<Interval> insert(ArrayList<Interval> intervals, Interval newInterval) {
@@ -37,7 +39,7 @@ public class MergeOverlappingIntervls {
             if (oldIntr.end < currIntr.start) {
                 ans.add(oldIntr);
                 oldIntr = currIntr;
-            } else if (oldIntr.end > currIntr.start) {
+            } else{
                 oldIntr.start = Math.min(oldIntr.start, currIntr.start);
                 oldIntr.end = Math.max(oldIntr.end, currIntr.end);
             }

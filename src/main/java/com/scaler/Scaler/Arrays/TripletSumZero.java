@@ -1,9 +1,6 @@
 package com.scaler.Scaler.Arrays;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.*;
 
 public class TripletSumZero {
     static void main(String[] args) {
@@ -13,31 +10,40 @@ public class TripletSumZero {
     }
 
     public static int[][] threeSumNLogN(int[] A) {
-        int len = A.length;
-        HashSet<ArrayList<Integer>> ans = new HashSet<>();
-        Arrays.sort(A);
-        for (int i = 0; i < len; i++) {
-            if (i > 0 && A[i] == A[i - 1]) continue;
-            int l = i + 1, r = len - 1;
-            while (l < r) {
-                int key = A[l] + A[r] + A[i];
-                if (key == 0) {
-                    ArrayList<Integer> pair = new ArrayList<>();
-                    pair.add(A[l]);
-                    pair.add(A[r]);
-                    pair.add(A[i]);
-                    ans.add(pair);
-                    l++;
-                    r--;
-                    while (l < r && A[l] == A[l - 1]) l++;
-                    while (l < r && A[r] == A[r + 1]) r--;
-                } else if (key < 0)
-                    l++;
-                else
-                    r--;
-            }
-        }
-        int[][] temp = ans.stream()
+      List<List<Integer>> result = new ArrayList<>();
+                int n = A.length;
+                int target = 0;
+                Arrays.sort(A);
+
+                for (int i = 0; i < n - 2; i++) {
+
+                    // skip duplicates
+                    if (i > 0 && A[i] == A[i - 1]) continue;
+
+                    int left = i + 1;
+                    int right = n - 1;
+
+                    while (left < right) {
+                        int sum = A[i] + A[left] + A[right];
+
+                        if (sum == target) {
+                            result.add(Arrays.asList(A[i], A[left], A[right]));
+
+                            left++;
+                            right--;
+
+                            // skip duplicates
+                            while (left < right && A[left] == A[left - 1]) left++;
+                            while (left < right && A[right] == A[right + 1]) right--;
+
+                        } else if (sum < target) {
+                            left++;
+                        } else {
+                            right--;
+                        }
+                    }
+                }
+        int[][] temp = result.stream()
                 .map(l -> l.stream()
                         .mapToInt(Integer::intValue).toArray())
                 .toArray(int[][]::new);

@@ -56,14 +56,14 @@ class Singleton_2 {
 //volatile ensures that changes made by one thread are immediately visible to other threads
 // and prevents instruction reordering so that dependent operations execute in the
 // intended order in a multithreaded environment.
-without volatile
-int data = 0;
-boolean ready = false;
-Thread 1
-data = 100;
-ready = true;
-
-JVM reoreder
+//without volatile
+//int data = 0;
+//boolean ready = false;
+//Thread 1
+//data = 100;
+//ready = true;
+//
+//JVM reoreder
 //Step 1: ready = true
 //Step 2: data = 100
 //Thread 2
@@ -71,22 +71,22 @@ JVM reoreder
 //        System.out.println(data); // wrong print 0
 //ready becomes true first
 //but data is still 0 (not updated yet)
-class Singleton_3 {
+class Singleton_5 {
 
-    private static volatile Singleton_3 instance_4;
+    private static volatile Singleton_5 instance_5;
 
-    private Singleton_3() {}
+    private Singleton_5() {}
 
-    public static Singleton getInstance() {
-        if (instance_4 == null) {
-            synchronized (Singleton_3.class) {
-                if (instance_4 == null) {
-                    instance_4 = new Singleton_3();
+    public static Singleton_5 getInstance() {
+        if (instance_5 == null) {
+            synchronized (Singleton_5.class) {
+                if (instance_5 == null) {
+                    instance_5 = new Singleton_5();
                 }
             }
         }
 
-        return instance_4;
+        return instance_5;
     }
 }
 
